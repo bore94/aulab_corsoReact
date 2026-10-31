@@ -1,0 +1,32 @@
+[
+    {
+        "nome": "Latte",
+        "categoria": "Latticini",
+        "prezzo": 1.29
+    },
+    {
+        "nome": "Pane",
+        "categoria": "Panetteria",
+        "prezzo": 1.5
+    },
+    {
+        "nome": "Mele",
+        "categoria": "Frutta",
+        "prezzo": 2.2
+    },
+    {
+        "nome": "Pere",
+        "categoria": "Frutta",
+        "prezzo": 2.4
+    },
+    {
+        "nome": "Uova",
+        "categoria": "Latticini",
+        "prezzo": 2.89
+    },
+    {
+        "nome": "Pasta",
+        "categoria": "Dispensa",
+        "prezzo": 0.95
+    }
+]
