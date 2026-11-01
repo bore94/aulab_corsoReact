@@ -1,11 +1,26 @@
+import Header from './components/Header.jsx'
+import List from './components/List.jsx'
+import Navbar from './components/Navbar.jsx'
+
+const names = ['Marco', 'Giulia', 'Andrea']
+
 function App() {
   return (
     <>
-      <h1 className="title">Corso React</h1>
-      <label className="etichetta" htmlFor="nome">
-        Nome
+      <Navbar />
+      <Header />
+      <label
+        className="label"
+        htmlFor="name"
+      >
+        Name
       </label>
-      <input className="campo" id="nome" type="text" />
+      <input
+        className="field"
+        id="name"
+        type="text"
+      />
+      <List names={names} />
     </>
   )
 }
