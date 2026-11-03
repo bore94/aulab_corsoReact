@@ -1,3 +1,7 @@
+#loader {
+    display: none;
+}
+
 .card {
     border: 1px solid #ccc;
     padding: 8px;
