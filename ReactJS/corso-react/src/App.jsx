@@ -1,3 +1,5 @@
+import Counter from './components/Counter.jsx'
+import Form from './components/Form.jsx'
 import Header from './components/Header.jsx'
 import List from './components/List.jsx'
 import Navbar from './components/Navbar.jsx'
@@ -9,18 +11,11 @@ function App() {
     <>
       <Navbar />
       <Header />
-      <label
-        className="label"
-        htmlFor="name"
-      >
-        Name
-      </label>
-      <input
-        className="field"
-        id="name"
-        type="text"
-      />
+      <label className="label" htmlFor="name"> Name </label>
+      <input type="text" className="field" id="name" />
       <List names={names} />
+      <Counter />
+      <Form />
     </>
   )
 }
