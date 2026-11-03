@@ -1,11 +1,7 @@
-function List({ names }) {
-  return (
-    <ul>
-      {names.map((name) => (
-        <li key={name}>{name}</li>
-      ))}
-    </ul>
-  )
+import Items from './Items.jsx'
+
+export default function List({ children }) {
+  return <ul>{children}</ul>
 }
 
-export default List
+List.Items = Items
