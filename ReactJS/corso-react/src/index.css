@@ -137,15 +137,25 @@ code {
 }
 
 .header {
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  padding: 72px 16px 8px;
 }
 
 .header h1 {
   margin: 0;
+  font-size: 36px;
+}
+
+.posts-page {
+  text-align: left;
+  padding: 0 24px 24px;
+}
+
+.posts-page ul {
+  padding-left: 20px;
 }
 
 .button-row {
