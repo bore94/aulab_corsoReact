@@ -1,35 +1,24 @@
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router'
+import { Link, useLoaderData } from 'react-router'
 
 export default function DetailView() {
-  const {id} = useParams()
-  const [post, setPost] = useState(null)
-
-  const getData = async () => {
-    const promise = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${id}`,
-    )
-    const json = await promise.json()
-    setPost(json)
-    console.log(json)
-  }
-
-  useEffect(() => {
-    getData()
-  }, [])
+  const [post, comments] = useLoaderData()
 
   return (
     <>
-      <h1>Detail page</h1>
-      {post && (
-        <div>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
-          <p>User ID: {post.userId}</p>
-          <p>Post ID: {post.id}</p>
-          <Link to="/posts">Back to Posts</Link>
-        </div>
-      )}
+      <h1>Detail View</h1>
+      <h2>{post.title}</h2>
+      <h3>{post.body}</h3>
+      <h4>Comments:</h4>
+      <ul>
+        {comments.map((comment) => {
+          return (
+            <li key={comment.id}>
+              {comment.body} - {comment.email}
+            </li>
+          )
+        })}
+      </ul>
+      <Link to="/posts">Back to Posts</Link>
     </>
   )
 }

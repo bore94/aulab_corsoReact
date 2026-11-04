@@ -9,6 +9,12 @@ function Navbar() {
       <Link to="/posts" className="navbar-link">
         Posts
       </Link>
+      <Link to="/login" className="navbar-link">
+        Login
+      </Link>
+      <Link to="/register" className="navbar-link">
+        Register
+      </Link>
     </nav>
   )
 }
