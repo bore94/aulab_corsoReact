@@ -1,14 +1,40 @@
+import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router'
+import { UserContext } from '../context/UserContext.jsx'
+
 export default function Register() {
+  const [userName, setUserName] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const { register } = useContext(UserContext)
+  const navigate = useNavigate()
+
+  const handleChange = (e) => {
+    if (e.target.id === 'register-name') {
+      setUserName(e.target.value)
+    }
+    if (e.target.id === 'register-email') {
+      setUserEmail(e.target.value)
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (userName && userEmail) {
+      register({ name: userName, email: userEmail })
+      navigate('/')
+    }
+  }
+
   return (
     <div className="auth-page">
       <h1>Registration page</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="register-name" className="label">
             Name
           </label>
           <input type="text" name="name" id="register-name" className="field"
-            placeholder="Enter your name"
+            placeholder="Name" value={userName} onChange={handleChange}
           />
         </div>
         <div>
@@ -16,29 +42,11 @@ export default function Register() {
             Email
           </label>
           <input
-            type="email" name="email" id="register-email" className="field"
-            placeholder="Enter your email"
+            type="email" id="register-email" className="field" name="email" 
+            placeholder="Email" value={userEmail} onChange={handleChange}
           />
         </div>
-        <div>
-          <label htmlFor="register-password" className="label">
-            Password
-          </label>
-          <input
-            type="password" name="password" id="register-password" className="field"
-            placeholder="Enter your password"
-          />
-        </div>
-        <div>
-          <label htmlFor="register-confirm-password" className="label">
-            Confirm Password
-          </label>
-          <input
-            type="password" name="confirmPassword" id="register-confirm-password" className="field"
-            placeholder="Enter your password"
-          />
-        </div>
-        <button type="button">Register</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   )
