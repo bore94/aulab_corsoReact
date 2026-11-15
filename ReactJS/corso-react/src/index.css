@@ -136,6 +136,18 @@ code {
   z-index: 1;
 }
 
+.light_navbar {
+  height: 70px;
+  background-color: bisque;
+  border-bottom: 1px solid black;
+}
+
+.dark_navbar {
+  height: 100px;
+  background-color: black;
+  border-bottom: 1px solid black;
+}
+
 .header {
   display: flex;
   align-items: center;

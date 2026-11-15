@@ -3,6 +3,7 @@ import Counter from '../components/Counter.jsx'
 import Form from '../components/Form.jsx'
 import List from '../components/List.jsx'
 import LoadingData from '../components/LoadingData.jsx'
+import useFetch from '../hooks/useFetch.js'
 
 const names = ['Marco', 'Giulia', 'Andrea']
 
@@ -10,6 +11,8 @@ export default function Homepage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(null)
+  const [url, setUrl] = useState()
+  const data = useFetch(url, url)
 
   const handleName = (e) => {
     setName(e.target.value)
@@ -26,6 +29,27 @@ export default function Homepage() {
 
   return (
     <>
+      <h1>Titles</h1>
+      <div className="button-row">
+        <button
+          className="loading-data-button"
+          onClick={() => setUrl('https://jsonplaceholder.typicode.com/posts')}
+        >
+          Posts
+        </button>
+        <button
+          className="loading-data-button"
+          onClick={() => setUrl('https://jsonplaceholder.typicode.com/users')}
+        >
+          Users
+        </button>
+      </div>
+      <ul>
+        {data &&
+          data.map((post) => (
+            <li key={post.id}>{post.title || post.name}</li>
+          ))}
+      </ul>
       <label className="label" htmlFor="name"> Name </label>
       <input type="text" className="field" id="name" />
       <List>
