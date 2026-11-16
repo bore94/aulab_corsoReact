@@ -1,3 +1,7 @@
-export default function Button({ children, ...props }) {
-  return <button {...props}>{children}</button>
+export default function Button({ children, className = 'btn btn-primary', ...props }) {
+  return (
+    <button className={className} {...props}>
+      {children}
+    </button>
+  )
 }

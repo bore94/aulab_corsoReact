@@ -28,62 +28,78 @@ export default function Homepage() {
   }
 
   return (
-    <>
-      <h1>Titles</h1>
-      <div className="button-row">
+    <div className="flex flex-col items-center gap-4">
+      <h1 className="text-3xl font-bold">Titles</h1>
+
+      <div className="flex gap-2">
         <button
-          className="loading-data-button"
+          className="btn btn-primary"
           onClick={() => setUrl('https://jsonplaceholder.typicode.com/posts')}
         >
           Posts
         </button>
         <button
-          className="loading-data-button"
+          className="btn btn-secondary"
           onClick={() => setUrl('https://jsonplaceholder.typicode.com/users')}
         >
           Users
         </button>
       </div>
-      <ul>
+
+      <ul className="list bg-base-100 rounded-box shadow-sm w-full">
         {data &&
           data.map((post) => (
-            <li key={post.id}>{post.title || post.name}</li>
+            <li key={post.id} className="list-row">
+              <div>{post.title || post.name}</div>
+            </li>
           ))}
       </ul>
-      <label className="label" htmlFor="name"> Name </label>
-      <input type="text" className="field" id="name" />
+
+      <fieldset className="fieldset w-full max-w-xs">
+        <legend className="fieldset-legend">Name</legend>
+        <input type="text" className="input input-bordered w-full" id="name" />
+      </fieldset>
+
       <List>
         {names.map((name, index) => {
           return <List.Items key={index}>{name}</List.Items>
         })}
       </List>
+
       <Counter />
+
       <Form onSubmit={handleSubmit}>
-        <label htmlFor="form-name" className="label"> Name </label>
-        <Form.Input
-          type="text"
-          value={name}
-          placeholder="Enter your name"
-          onChange={handleName}
-          id="form-name"
-        />
-        <label htmlFor="form-email" className="label"> Email </label>
-        <Form.Input
-          type="email"
-          value={email}
-          placeholder="Enter your email"
-          onChange={handleEmail}
-          id="form-email"
-        />
+        <fieldset className="fieldset w-full max-w-xs">
+          <legend className="fieldset-legend">Name</legend>
+          <Form.Input
+            type="text"
+            value={name}
+            placeholder="Enter your name"
+            onChange={handleName}
+            id="form-name"
+          />
+        </fieldset>
+        <fieldset className="fieldset w-full max-w-xs">
+          <legend className="fieldset-legend">Email</legend>
+          <Form.Input
+            type="email"
+            value={email}
+            placeholder="Enter your email"
+            onChange={handleEmail}
+            id="form-email"
+          />
+        </fieldset>
         <Form.Button type="submit">Submit</Form.Button>
       </Form>
+
       {submitted && (
         <Form.Result>
           <p>Name: {submitted.name}</p>
           <p>Email: {submitted.email}</p>
         </Form.Result>
       )}
+
       <LoadingData />
-    </>
+    </div>
   )
 }

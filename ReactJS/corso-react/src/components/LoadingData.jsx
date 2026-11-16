@@ -22,19 +22,24 @@ export default function LoadingData() {
   }
 
   return (
-    <div className="loading-data">
-      <h1>Loading data</h1>
-      <button className="loading-data-button" onClick={handleClick}>
-        Clicca qui
-      </button>
-      <ul>
-        {users &&
-          users.map((user) => (
-            <li key={user.id}>
-              {user.name} — {user.email}
-            </li>
-          ))}
-      </ul>
+    <div className="card bg-base-100 shadow-sm my-6">
+      <div className="card-body items-center">
+        <h2 className="card-title">Loading data</h2>
+        <button className="btn btn-accent" onClick={handleClick}>
+          Clicca qui
+        </button>
+        <ul className="list bg-base-100 rounded-box w-full">
+          {users &&
+            users.map((user) => (
+              <li key={user.id} className="list-row">
+                <div>
+                  <div className="font-semibold">{user.name}</div>
+                  <div className="text-xs opacity-60">{user.email}</div>
+                </div>
+              </li>
+            ))}
+        </ul>
+      </div>
     </div>
   )
 }

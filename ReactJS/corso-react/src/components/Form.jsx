@@ -4,10 +4,14 @@ import Result from './Result.jsx'
 
 export default function Form({ children, onSubmit }) {
   return (
-    <>
-      <h2>Form</h2>
-      <form onSubmit={onSubmit}>{children}</form>
-    </>
+    <div className="card bg-base-100 shadow-sm my-6">
+      <div className="card-body items-center">
+        <h2 className="card-title">Form</h2>
+        <form className="flex flex-col items-center gap-3 w-full" onSubmit={onSubmit}>
+          {children}
+        </form>
+      </div>
+    </div>
   )
 }
 

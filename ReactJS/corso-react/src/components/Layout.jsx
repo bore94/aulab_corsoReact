@@ -4,10 +4,12 @@ import Header from './Header.jsx'
 
 export default function Layout() {
   return (
-    <>
+    <div className="min-h-screen bg-base-200">
       <Navbar />
       <Header />
-      <Outlet />
-    </>
+      <main className="max-w-3xl mx-auto px-4 pb-10">
+        <Outlet />
+      </main>
+    </div>
   )
 }

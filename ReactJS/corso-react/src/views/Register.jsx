@@ -26,28 +26,41 @@ export default function Register() {
   }
 
   return (
-    <div className="auth-page">
-      <h1>Registration page</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="register-name" className="label">
-            Name
-          </label>
-          <input type="text" name="name" id="register-name" className="field"
-            placeholder="Name" value={userName} onChange={handleChange}
-          />
+    <div className="flex justify-center">
+      <div className="card bg-base-100 w-full max-w-sm shadow-sm">
+        <div className="card-body">
+          <h1 className="card-title justify-center">Registration page</h1>
+          <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">Name</legend>
+              <input
+                type="text"
+                name="name"
+                id="register-name"
+                className="input input-bordered w-full"
+                placeholder="Name"
+                value={userName}
+                onChange={handleChange}
+              />
+            </fieldset>
+            <fieldset className="fieldset">
+              <legend className="fieldset-legend">Email</legend>
+              <input
+                type="email"
+                id="register-email"
+                className="input input-bordered w-full"
+                name="email"
+                placeholder="Email"
+                value={userEmail}
+                onChange={handleChange}
+              />
+            </fieldset>
+            <button type="submit" className="btn btn-primary">
+              Register
+            </button>
+          </form>
         </div>
-        <div>
-          <label htmlFor="register-email" className="label">
-            Email
-          </label>
-          <input
-            type="email" id="register-email" className="field" name="email" 
-            placeholder="Email" value={userEmail} onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Register</button>
-      </form>
+      </div>
     </div>
   )
 }

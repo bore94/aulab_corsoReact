@@ -1,32 +1,36 @@
 import { useContext } from 'react'
 import { Link } from 'react-router'
 import { UserContext } from '../context/UserContext.jsx'
-import useScroll from '../hooks/useScroll.js'
 
 function Navbar() {
   const { user } = useContext(UserContext)
-  const [scrolled, scrollY] = useScroll()
 
   return (
-    <nav
-      ref={scrolled}
-      className={scrollY > 0 ? 'navbar dark_navbar' : 'navbar light_navbar'}
-    >
-      <Link to="/" className="navbar-link">
-        Home
-      </Link>
-      {user && (
-        <Link to="/posts" className="navbar-link">
-          Posts
+    <div className="navbar bg-base-100 shadow-sm">
+      <div className="flex-1">
+        <Link to="/" className="btn btn-ghost text-xl">
+          Corso React
         </Link>
-      )}
-      <Link to="/login" className="navbar-link">
-        Login
-      </Link>
-      <Link to="/register" className="navbar-link">
-        Register
-      </Link>
-    </nav>
+      </div>
+      <div className="flex-none">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          {user && (
+            <li>
+              <Link to="/posts">Posts</Link>
+            </li>
+          )}
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+        </ul>
+      </div>
+    </div>
   )
 }
 
