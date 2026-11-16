@@ -1,2 +1,19 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.light_navbar {
+  height: 70px;
+  background-color: red;
+  border-bottom: 1px solid black;
+}
+
+.dark_navbar {
+  height: 100px;
+  background-color: black;
+  border-bottom: 1px solid black;
+  color: white;
+}
+
+.dark_navbar a {
+  color: white;
+}
